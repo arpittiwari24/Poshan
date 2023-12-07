@@ -13,7 +13,7 @@ const App = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/users/me", {
+      .get("https://poshan-backend.onrender.com/users/me", {
         withCredentials: true,
       })
       .then((res) => {

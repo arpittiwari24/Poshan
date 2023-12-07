@@ -14,7 +14,7 @@ const submitHandler = async (e) => {
 
   try {
     const {data}= await axios.post(
-      "http://localhost:5000/users/signup",
+      "https://poshan-backend.onrender.com/users/signup",
       {
         name,
         email,
