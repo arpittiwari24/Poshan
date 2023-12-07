@@ -43,7 +43,7 @@ if (isAuthenticated) return <Navigate to="/" />
         <div>
             <a href="/">
                 <h3 className="text-4xl font-bold text-black">
-                    QuixieStream
+                    Poshan
                 </h3>
             </a>
         </div>
@@ -62,7 +62,7 @@ if (isAuthenticated) return <Navigate to="/" />
                             name="text"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
-                            className="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                            className="text-white px-2 block w-full h-10 mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                         />
                     </div>
                 </div>
@@ -79,7 +79,7 @@ if (isAuthenticated) return <Navigate to="/" />
                             name="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
-                            className="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                            className=" text-white px-2 block w-full h-10 mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                         />
                     </div>
                 </div>
@@ -96,24 +96,24 @@ if (isAuthenticated) return <Navigate to="/" />
                             name="password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
-                            className="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                            className="text-white px-2 block w-full h-10 mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                         />
                     </div>
                 </div>
-                <div className="flex items-center mt-4">
+                <div className="flex items-center mt-4 py-2">
                     <button type='submit' className="btn btn-info w-full px-4 py-2 tracking-wide text-black transition-colors duration-200 transform  rounded-md ">
                         Register
                     </button>
                 </div>
             </form>
-            {/* <div className="mt-4 text-grey-600">
+            <div className="mt-4 text-grey-600 text-center">
                 Already have an account?{" "}
                 <span>
-                    <Link to="/login" className="text-blue-500 hover:underline">
+                    <Link to="/login" className="text-blue-500 underline">
                         Log in
                     </Link>
                 </span>
-            </div> */}
+            </div>
         </div>
     </div>
 </div>

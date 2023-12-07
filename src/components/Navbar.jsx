@@ -69,11 +69,25 @@ const Navbar = () => {
         <label tabIndex={0} className="btn btn-ghost lg:hidden">
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
         </label>
+        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow-xl bg-white rounded-box w-52">
+        <Link to="/"><li className='md:text-xl'><a>About Us</a></li></Link>
+        <Link to="/contact-us"><li tabIndex={0} className='md:text-xl'>
+                <summary>Contact Us</summary>
+            </li></Link>
+            </ul>
       </div>
       <a className="btn btn-ghost normal-case text-3xl font-semibold max-sm:text-xl">Poshan</a>
     </div>
+    <div className="navbar-center hidden lg:flex">
+          <ul className="menu menu-horizontal px-1">
+            <Link to="/"><li className='md:text-xl'><a>About Us</a></li></Link>
+            <Link to="/contact-us"><li tabIndex={0} className='md:text-xl'>
+                <summary>Contact Us</summary>
+            </li></Link>
+          </ul>
+        </div>
     <div className="navbar-end">
-      <Link to="/signup" className="btn text-white">Get Started</Link>
+      <Link to="/signup" className="btn text-white">Read Blogs</Link>
       {/* <Link to="/" className="btn text-black">Get Started</Link> */}
     </div>
   </div>

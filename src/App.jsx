@@ -6,6 +6,7 @@ import { Toaster } from "react-hot-toast"
 import { useContext, useEffect } from "react"
 import { Context } from "./main"
 import axios from "axios"
+import ContactUsPage from "./components/Contact"
 
 const App = () => {
   const { setUser, setIsAuthenticated} = useContext(Context);
@@ -32,6 +33,7 @@ const App = () => {
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
+      <Route path="/contact-us" element={<ContactUsPage />} />
     </Routes>
     <Toaster />
     </BrowserRouter>

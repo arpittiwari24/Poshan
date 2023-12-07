@@ -2,7 +2,6 @@ import React, { useContext } from 'react'
 import Navbar from './Navbar'
 import Hero from './Hero'
 import { Context } from '../main'
-import axios from 'axios'
 
 const Home = () => {
   const { isAuthenticated } = useContext(Context)
@@ -59,7 +58,7 @@ const Home = () => {
           <div>
             <div>
           <Hero />
-      </div>
+          </div>
          </div>
         ) }
     </div>

@@ -1,8 +1,9 @@
 import React, { useContext, useState } from 'react'
 import { Context } from '../main';
-import { toast } from "react-hot-toast"
-import { Navigate } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom'
 import axios from "axios"
+
+
 const Login = () => {
     const { isAuthenticated, setIsAuthenticated } =
     useContext(Context);
@@ -27,11 +28,11 @@ const Login = () => {
         }
       );
       console.log(data)
-      toast.success(data.message);
+      // toast.success(data.message);
       
       setIsAuthenticated(true);
     } catch (error) {
-      toast.error("error logging in");
+      // toast.error("error logging in");
       setIsAuthenticated(false);
     }
   };
@@ -39,45 +40,68 @@ const Login = () => {
   if (isAuthenticated) return <Navigate to="/" />
 
   return (
-    <div className="  flex items-center justify-center">
-    <div className="flex justify-center items-center">
-     <div className="w-1/3 bg-white p-8 rounded shadow-md">
-       <h2 className="text-2xl font-bold mb-4">Login</h2>
-       <form onSubmit={submitHandler}>
-         <div className="mb-4">
-           <label className="block text-sm font-medium mb-1">
-             Email
-           </label>
-           <input
-             type="email"
-             name="email"
-             value={email}
-             onChange={(e) => setEmail(e.target.value)}
-             className="w-full border rounded py-2 px-3 focus:outline-none focus:border-blue-400"
-           />
-         </div>
-         <div className="mb-4">
-           <label  className="block text-sm font-medium mb-1">
-             Password
-           </label>
-           <input
-             type="password"
-             name="password"
-             value={password}
-             onChange={(e) => setPassword(e.target.value)}
-             className="w-full border rounded py-2 px-3 focus:outline-none focus:border-blue-400"
-           />
-         </div>
-         <button
-           type="submit"
-           className="w-full bg-blue-500 text-black py-2 px-4 rounded hover:bg-blue-600 focus:outline-none"
-         >
-           Log in
-         </button>
-       </form>
-     </div>
-   </div>
-  </div>
+    <div>
+    <div className="flex flex-col items-center min-h-screen pt-6 sm:justify-center sm:pt-0 bg-gray-50">
+        <div>
+            <a href="/">
+                <h3 className="text-4xl font-bold text-black">
+                    Poshan
+                </h3>
+            </a>
+        </div>
+        <div className="w-full px-6 py-4 mt-6 overflow-hidden bg-white shadow-md sm:max-w-lg sm:rounded-lg">
+            <form onSubmit={submitHandler}>
+                <div className="mt-4">
+                    <label
+                        htmlFor="email"
+                        className="block text-sm font-medium text-gray-700 undefined"
+                    >
+                        Email
+                    </label>
+                    <div className="flex flex-col items-start">
+                        <input
+                            type="email"
+                            name="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            className=" text-white block px-2 w-full h-10 mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                        />
+                    </div>
+                </div>
+                <div className="mt-4">
+                    <label
+                        htmlFor="password"
+                        className="block text-sm font-medium text-gray-700 undefined"
+                    >
+                        Password
+                    </label>
+                    <div className="flex flex-col items-start">
+                        <input
+                            type="password"
+                            name="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            className="text-white block px-2 w-full h-10 mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                        />
+                    </div>
+                </div>
+                <div className="flex items-center mt-4 py-2">
+                    <button type='submit' className="btn btn-info w-full px-4 py-2 tracking-wide text-black transition-colors duration-200 transform  rounded-md ">
+                        Login
+                    </button>
+                </div>
+            </form>
+            <div className="mt-4 text-grey-600 text-center">
+                Don't have an account?{" "}
+                <span>
+                    <Link to="/signup" className="text-blue-500 underline">
+                        Signup
+                    </Link>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
   )
 }
 
