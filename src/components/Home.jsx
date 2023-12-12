@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import Navbar from './Navbar'
 import Hero from './Hero'
 import { Context } from '../main'
+import AllBlogs from './AllBlogs'
 
 const Home = () => {
   const { isAuthenticated } = useContext(Context)
@@ -52,7 +53,7 @@ const Home = () => {
         </nav>
         { isAuthenticated ? (
           <>
-          <h1 className='text-center text-5xl'>Awesome Blogs coming soon</h1>
+          <AllBlogs />
           </>
         ) : (
           <div>

@@ -7,6 +7,7 @@ import { useContext, useEffect } from "react"
 import { Context } from "./main"
 import axios from "axios"
 import ContactUsPage from "./components/Contact"
+import SingleBlog from "./components/Individual-Blogs"
 
 const App = () => {
   const { setUser, setIsAuthenticated} = useContext(Context);
@@ -34,6 +35,7 @@ const App = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/contact-us" element={<ContactUsPage />} />
+      <Route path="/blogs/:blogId" element={<SingleBlog />} />
     </Routes>
     <Toaster />
     </BrowserRouter>
