@@ -31,7 +31,7 @@ const AllBlogs = () => {
       <h1 className='text-5xl font-semibold'>All Blogs</h1>
     </div>
    {loading ? (
-    <div >
+    <div className='flex justify-center items-center py-16'>
       <ClipLoader color="#243ba3" /> 
     </div>
    ) : (
