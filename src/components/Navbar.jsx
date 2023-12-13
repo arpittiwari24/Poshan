@@ -31,6 +31,7 @@ const Navbar = () => {
             </label>
             <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-gray-300 rounded-box w-52 ">
             <li><Link to="/">Home</Link></li>
+            <li><a href="https://cosmofeed.com/vp/6571d7f72b881d001d9e6ab8" target='_blank'>Donate</a></li>
             </ul>
           </div>
           <a className="btn btn-ghost normal-case text-3xl font-semibold max-sm:text-0.5xl">Poshan</a>
@@ -38,6 +39,7 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li className='md:text-xl'><Link to="/" >Home</Link></li>
+            <li className='md:text-xl'><a href="https://cosmofeed.com/vp/6571d7f72b881d001d9e6ab8" target='_blank' >Donate</a></li>
           </ul>
         </div>
         <div className="navbar-end">

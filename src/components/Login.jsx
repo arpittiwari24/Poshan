@@ -2,6 +2,13 @@ import React, { useContext, useState } from 'react'
 import { Context } from '../main';
 import { Link, Navigate } from 'react-router-dom'
 import axios from "axios"
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { ClipLoader } from 'react-spinners';
+
+// https://poshan-backend.onrender.com
+
+// <ClipLoader color="#36d7b7" />
 
 
 const Login = () => {
@@ -10,12 +17,18 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const loading = () => {
+    return(
+        <ClipLoader color="#36d7b7" />
+    )
+  }
+
   const submitHandler = async (e) => {
     e.preventDefault();
 
     try {
       const {data}= await axios.post(
-        "https://poshan-backend.onrender.com/users/login",
+        "http://localhost:5000/users/login",
         {
           email,
           password,
@@ -27,12 +40,14 @@ const Login = () => {
           withCredentials: true,
         }
       );
-      console.log(data)
-      // toast.success(data.message);
-      
+      toast.success(data.message, {
+        position: toast.POSITION.TOP_CENTER,
+      });
       setIsAuthenticated(true);
     } catch (error) {
-      // toast.error("error logging in");
+        toast.error("Oops!! Try Again", {
+            position: toast.POSITION.TOP_CENTER,
+          });
       setIsAuthenticated(false);
     }
   };
@@ -86,7 +101,7 @@ const Login = () => {
                     </div>
                 </div>
                 <div className="flex items-center mt-4 py-2">
-                    <button type='submit' className="btn btn-info w-full px-4 py-2 tracking-wide text-black transition-colors duration-200 transform  rounded-md ">
+                    <button type='submit' className="btn btn-info w-full px-4 py-2 tracking-wide text-black transition-colors duration-200 transform  rounded-md " onClick={loading()}>
                         Login
                     </button>
                 </div>

@@ -2,13 +2,22 @@ import React, { useContext, useState } from 'react'
 import { Link, Navigate } from 'react-router-dom'
 import { Context } from '../main';
 import axios from 'axios';
-// import toast from 'react-hot-toast';
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 
 const Signup = () => {
   const { isAuthenticated, setIsAuthenticated } = useContext(Context);
 const [email, setEmail] = useState("");
 const [password, setPassword] = useState("");
 const [name, setName] = useState("");
+
+const loading = () => {
+    return(
+        <ClipLoader color="#36d7b7" />
+    )
+  }
+
 const submitHandler = async (e) => {
   e.preventDefault();
 
@@ -27,11 +36,15 @@ const submitHandler = async (e) => {
         withCredentials: true,
       }
     );
-    console.log(data)
-    // toast.success(data.message);
+
+    toast.success(data.message, {
+        position: toast.POSITION.TOP_CENTER,
+      });
     setIsAuthenticated(true);
   } catch (error) {
-    // toast.error("error logging in");
+    toast.error("Oops!! Try Again", {
+        position: toast.POSITION.TOP_CENTER,
+      });
     setIsAuthenticated(false);
   }
 };
