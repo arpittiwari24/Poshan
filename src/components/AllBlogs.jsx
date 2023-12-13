@@ -12,7 +12,7 @@ const AllBlogs = () => {
     setLoading(true)
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/blogs/all', {
+        const response = await axios.get('https://poshan-backend.onrender.com/blogs/all', {
             withCredentials: true,
         }); 
         setBlogs(response.data.data);

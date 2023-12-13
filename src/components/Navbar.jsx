@@ -10,7 +10,7 @@ const Navbar = () => {
     e.preventDefault()
 
     try {
-      axios.get("http://localhost:5000/users/logout")
+      axios.get("https://poshan-backend.onrender.com/users/logout")
       .catch((err) => {
         console.log(err)
       })
