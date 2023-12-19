@@ -6,9 +6,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { ClipLoader } from 'react-spinners';
 
-// https://poshan-backend.onrender.com
 
-// <ClipLoader color="#36d7b7" />
 
 
 const Login = () => {
@@ -16,6 +14,7 @@ const Login = () => {
     useContext(Context);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isButtonDisabled, setButtonDisabled] = useState(false);
 
   const loading = () => {
     return(
@@ -25,6 +24,7 @@ const Login = () => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
+    setButtonDisabled(true);
 
     try {
       const {data}= await axios.post(
@@ -43,11 +43,13 @@ const Login = () => {
       toast.success(data.message, {
         position: toast.POSITION.TOP_CENTER,
       });
+      setButtonDisabled(false);
       setIsAuthenticated(true);
     } catch (error) {
         toast.error("Oops!! Try Again", {
             position: toast.POSITION.TOP_CENTER,
           });
+      setButtonDisabled(false);
       setIsAuthenticated(false);
     }
   };
@@ -101,7 +103,9 @@ const Login = () => {
                     </div>
                 </div>
                 <div className="flex items-center mt-4 py-2">
-                    <button type='submit' className="btn btn-info w-full px-4 py-2 tracking-wide text-black transition-colors duration-200 transform  rounded-md " onClick={loading()}>
+                    <button
+                    disabled={isButtonDisabled} 
+                     type='submit' className="btn btn-info w-full px-4 py-2 tracking-wide text-black transition-colors duration-200 transform  rounded-md ">
                         Login
                     </button>
                 </div>

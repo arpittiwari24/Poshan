@@ -11,15 +11,12 @@ const Signup = () => {
 const [email, setEmail] = useState("");
 const [password, setPassword] = useState("");
 const [name, setName] = useState("");
+const [isButtonDisabled, setButtonDisabled] = useState(false);
 
-const loading = () => {
-    return(
-        <ClipLoader color="#36d7b7" />
-    )
-  }
 
 const submitHandler = async (e) => {
   e.preventDefault();
+  setButtonDisabled(true);
 
   try {
     const {data}= await axios.post(
@@ -40,12 +37,14 @@ const submitHandler = async (e) => {
     toast.success(data.message, {
         position: toast.POSITION.TOP_CENTER,
       });
+    setButtonDisabled(false);
     setIsAuthenticated(true);
   } catch (error) {
     toast.error("Oops!! Try Again", {
         position: toast.POSITION.TOP_CENTER,
       });
     setIsAuthenticated(false);
+    setButtonDisabled(false);
   }
 };
 
@@ -114,7 +113,10 @@ if (isAuthenticated) return <Navigate to="/" />
                     </div>
                 </div>
                 <div className="flex items-center mt-4 py-2">
-                    <button type='submit' className="btn btn-info w-full px-4 py-2 tracking-wide text-black transition-colors duration-200 transform  rounded-md ">
+                    <button 
+                            disabled={isButtonDisabled}  
+                            type='submit' 
+                            className="btn btn-info w-full px-4 py-2 tracking-wide text-black transition-colors duration-200 transform  rounded-md ">
                         Register
                     </button>
                 </div>
