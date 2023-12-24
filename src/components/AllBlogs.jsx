@@ -46,7 +46,7 @@ const AllBlogs = () => {
        />
        <div className="p-4">
          <h2 className="text-black text-xl font-bold mb-2">{blog.title}</h2>
-         <p className="text-gray-600 mb-2">By {blog.author}</p>
+         <p className="text-gray-600 mb-2">By <span className='underline'>{blog.author}</span></p>
        </div>
      </div>
    </Link>
