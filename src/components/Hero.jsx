@@ -18,7 +18,7 @@ const Hero = () => {
 <div className="bg-gray-100 min-h-screen">
       {/* Hero Section */}
       <motion.div
-        className="text-center py-12"
+        className="text-center py-32"
         variants={fadeIn}
         initial="hidden"
         animate="visible"
